@@ -28,4 +28,19 @@ export class PersonaService {
   }
 
   /* -------------------------------------------------------------------------------------------------------------- */
+
+  /**
+   * Servicio de envio de POST
+   * @param model
+   */
+  public create(model: any): Observable<any> {
+    let url: string = this.serviceURL + "/create";
+    let headers: any = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    return this.httpClient
+      .post(url, JSON.stringify(model), {headers: headers});
+  }
+
+  /* -------------------------------------------------------------------------------------------------------------- */
 }
