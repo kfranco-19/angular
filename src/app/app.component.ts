@@ -24,12 +24,14 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public enviarFormulario(): void {
     console.log('Datos de formulario:' + JSON.stringify(this.formGroup.value));
+
     let parametros: any = null;
     parametros = Object.assign({}, this.formGroup.value);
 
     let datosAEnviar: any = {
       primerNombre: parametros.nombre,
-      segundoNombre: parametros.apellido
+      segundoNombre: parametros.apellido,
+      edad: parametros.edad
     };
 
     console.log('Datos a enviar:' + JSON.stringify(datosAEnviar));
@@ -39,11 +41,34 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     });
   }
 
+
+  public actualizarFormulario(): void {
+
+    let parametros: any = null;
+    parametros = Object.assign({}, this.formGroup.value);
+
+    let datosAEnviar: any = {
+      primerNombre: parametros.nombre,
+      segundoNombre: parametros.apellido,
+      edad: parametros.edad
+    };
+
+    console.log('Datos a enviar:' + JSON.stringify(datosAEnviar));
+
+    this.personaService.update(datosAEnviar).subscribe(result => {
+      console.log('Datos from server:' + JSON.stringify(result));
+    });
+  }
+
+
+
   private initForm(): void {
     this.formGroup = new FormGroup({
       nombre: new FormControl('', []
       ),
       apellido: new FormControl('', []
+      ),
+      edad: new FormControl('', []
       )
     });
 

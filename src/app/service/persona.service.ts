@@ -41,6 +41,18 @@ export class PersonaService {
     return this.httpClient
       .post(url, JSON.stringify(model), {headers: headers});
   }
+/**
+   * Servicio de envio de PUT
+   * @param model
+   */
+  public update(model: any): Observable<any> {
+    let url: string = this.serviceURL + "/update";
+    let headers: any = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    return this.httpClient
+      .put(url, JSON.stringify(model), {headers: headers});
+  }
 
   /* -------------------------------------------------------------------------------------------------------------- */
 }
