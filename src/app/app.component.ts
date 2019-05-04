@@ -58,6 +58,23 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     });
   }
 
+  public mostrarInfo(): void {
+
+    let parametros: any = null;
+    parametros = Object.assign({}, this.formGroup.value);
+
+    let mostrarInfo: any = {
+      email: parametros.email,
+      usuario: parametros.usuario
+    };
+
+    console.log('Datos a enviar:' + JSON.stringify(mostrarInfo));
+
+    this.personaService.getAll(mostrarInfo).subscribe(result => {
+      console.log('Datos from server:' + JSON.stringify(result));
+    });
+  }
+
 
 
   private initForm(): void {
