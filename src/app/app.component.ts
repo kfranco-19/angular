@@ -29,9 +29,8 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     parametros = Object.assign({}, this.formGroup.value);
 
     let datosAEnviar: any = {
-      primerNombre: parametros.nombre,
-      segundoNombre: parametros.apellido,
-      edad: parametros.edad
+      email: parametros.email,
+      usuario: parametros.usuario
     };
 
     console.log('Datos a enviar:' + JSON.stringify(datosAEnviar));
@@ -48,9 +47,8 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     parametros = Object.assign({}, this.formGroup.value);
 
     let datosAEnviar: any = {
-      primerNombre: parametros.nombre,
-      segundoNombre: parametros.apellido,
-      edad: parametros.edad
+      email: parametros.email,
+      usuario: parametros.usuario
     };
 
     console.log('Datos a enviar:' + JSON.stringify(datosAEnviar));
@@ -64,11 +62,9 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 
   private initForm(): void {
     this.formGroup = new FormGroup({
-      nombre: new FormControl('', []
+      email: new FormControl('', []
       ),
-      apellido: new FormControl('', []
-      ),
-      edad: new FormControl('', []
+      usuario: new FormControl('', []
       )
     });
 

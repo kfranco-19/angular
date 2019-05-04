@@ -26,14 +26,11 @@
 <div>
   <form id="f01" [formGroup]="formGroup">
 
-    <label>nombre:</label>
-    <input type="text" formControlName="nombre"/>
+    <label>Email:</label>
+    <input type="text" formControlName="email"/>
 
-    <label>apellido:</label>
-    <input type="text" formControlName="apellido"/>
-
-    <label>edad:</label>
-    <input type="text" formControlName="edad"/>
+    <label>Usuario:</label>
+    <input type="text" formControlName="usuario"/>
 
     <button (click)="enviarFormulario()">
       guardar
